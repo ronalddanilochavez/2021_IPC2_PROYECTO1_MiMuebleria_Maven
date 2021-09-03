@@ -11,12 +11,12 @@ package myPackage;
  * @author Admin
  */
 public class ensamblarMuebles {
-    String identificadorMueble;
-    String nombreMueble;
-    String usuario;
-    String fecha;
-    String costo;
-    String precio;
+    private String identificadorMueble;
+    private String nombreMueble;
+    private String usuario;
+    private String fecha;
+    private String costo;
+    private String precio;
     
     /////////////////////
     

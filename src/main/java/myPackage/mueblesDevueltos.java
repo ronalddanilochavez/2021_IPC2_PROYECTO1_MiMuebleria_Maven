@@ -11,13 +11,13 @@ package myPackage;
  * @author Admin
  */
 public class mueblesDevueltos {
-    String identificadorMueble;
-    String nombreMueble;
-    String cantidad;
-    String nombreCliente;
-    String NITCliente;
-    String fechaDevolucion;
-    String perdida;
+    private String identificadorMueble;
+    private String nombreMueble;
+    private String cantidad;
+    private String nombreCliente;
+    private String NITCliente;
+    private String fechaDevolucion;
+    private String perdida;
     
     /////////////////////
     

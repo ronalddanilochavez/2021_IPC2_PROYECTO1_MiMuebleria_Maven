@@ -11,10 +11,10 @@ package myPackage;
  * @author Admin
  */
 public class usuario {
-    String nombre;
-    String password;
-    String tipo;
-    String bloqueado;
+    private String nombre;
+    private String password;
+    private String tipo;
+    private String bloqueado;
     
     /////////////////////
     

@@ -11,9 +11,9 @@ package myPackage;
  * @author Admin
  */
 public class pieza {
-    String tipo;
-    String costo;
-    String cantidad;
+    private String tipo;
+    private String costo;
+    private String cantidad;
     
     /////////////////////
     

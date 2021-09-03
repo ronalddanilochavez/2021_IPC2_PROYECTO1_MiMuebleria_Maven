@@ -11,10 +11,10 @@ package myPackage;
  * @author Admin
  */
 public class ensamblePiezas {
-    String nombreMueble;
-    String pieza;
-    String cantidad;
-    String costo;
+    private String nombreMueble;
+    private String pieza;
+    private String cantidad;
+    private String costo;
     
     /////////////////////
     

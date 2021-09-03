@@ -11,16 +11,16 @@ package myPackage;
  * @author Admin
  */
 public class mueblesVendidos {
-    String identificadorMueble;
-    String nombreMueble;
-    String usuario;
-    String costo;
-    String precio;
-    String cantidad;
-    String ganancia;
-    String nombreCliente;
-    String NITCliente;
-    String fechaVenta;
+    private String identificadorMueble;
+    private String nombreMueble;
+    private String usuario;
+    private String costo;
+    private String precio;
+    private String cantidad;
+    private String ganancia;
+    private String nombreCliente;
+    private String NITCliente;
+    private String fechaVenta;
     
     /////////////////////
     

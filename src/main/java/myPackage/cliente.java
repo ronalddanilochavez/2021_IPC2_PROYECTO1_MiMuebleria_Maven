@@ -11,11 +11,11 @@ package myPackage;
  * @author Admin
  */
 public class cliente {
-    String NITCliente;
-    String nombreCliente;
-    String direccionCliente;
-    String municipio;
-    String departamento;
+    private String NITCliente;
+    private String nombreCliente;
+    private String direccionCliente;
+    private String municipio;
+    private String departamento;
     
     /////////////////////
     
