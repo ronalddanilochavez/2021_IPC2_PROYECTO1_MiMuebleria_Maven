@@ -363,6 +363,14 @@
                             <th>Fecha devolución</th>
                             <th>Pérdida</th>
                         </tr>
+                        <% 
+                            String NITCliente = request.getParameter("ventas_consultadevoluciones_NITCliente");
+                            String fechaInicial = request.getParameter("ventas_consultadevoluciones_fechainicial");
+                            String fechaFinal = request.getParameter("ventas_consultadevoluciones_fechafinal");
+                            String ventasConsultaDevolucionesCliente = mainClass.ventasConsultaDevolucionesCliente(NITCliente, fechaInicial, fechaFinal);
+                            
+                            out.print(ventasConsultaDevolucionesCliente);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>

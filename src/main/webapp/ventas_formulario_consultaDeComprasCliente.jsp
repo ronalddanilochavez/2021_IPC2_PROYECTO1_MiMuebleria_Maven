@@ -249,6 +249,14 @@
                             <th>NIT cliente</th>
                             <th>Fecha venta</th>
                         </tr>
+                        <% 
+                            String NITCliente = request.getParameter("ventas_consultaventas_NITCliente");
+                            String fechaInicial = request.getParameter("ventas_consultaventas_fechainicial");
+                            String fechaFinal = request.getParameter("ventas_consultaventas_fechafinal");
+                            String ventasConsultaDeComprasCliente = mainClass.ventasConsultaDeComprasCliente(NITCliente, fechaInicial, fechaFinal);
+                            
+                            out.print(ventasConsultaDeComprasCliente);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>

@@ -83,7 +83,13 @@
         <div class="departamento">
         
             <h1>Ventas</h1>
+            <% 
+                String NITCliente = request.getParameter("ventas_NITCliente");
+                String ventas_consultarNITCliente = mainClass.ventasConsultarNITClientes(NITCliente);
 
+                out.print(ventas_consultarNITCliente);
+            %>
+            <!--
             <form action="ventas_formulario_consultarNITCliente.jsp" method="post" autocomplete="on">
                 <label for="fname">NIT cliente </label>
                 <input type="text" id="ventas_NITCliente" name="ventas_NITCliente" value="" required>
@@ -91,8 +97,10 @@
                 <input type="submit" value="Consultar NIT">
                 <br><br>
             </form>
+            -->
             
             <!-- if NIT exist fill the values -->
+            <!--
             <form action="ventas_formulario_crearFactura.jsp" method="post" autocomplete="on">
                 <label for="fname">NIT cliente </label>
                 <input type="text" id="ventas_NITCliente_factura" name="ventas_NITCliente_factura" value="" required>
@@ -109,8 +117,9 @@
                 <label for="fname">Departamento </label>
                 <input type="text" id="ventas_departamento" name="ventas_departamento" value="" required>
                 <br><br>
-                <label for="ventas_muebles_disponibles">Mueble </label>
+                -->
                 
+                <label for="ventas_muebles_disponibles">Mueble </label>       
                 <!-- Llenar los valores con los muebles -->
                     <select id="ventas_mueble_ID" name="ventas_mueble_ID" size="1">
                         <% 

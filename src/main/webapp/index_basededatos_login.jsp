@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>Ventas</title>
+        <title>Mi Mueblería</title>
         <meta charset="UTF-8">
         <!-- JSP meta tag -->
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,38 +29,6 @@
         </style>
     </head>
     <body>
-        <h1 style="background-color:burlywood;">Área de Punto de Ventas</h1>
-        
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- Descripción de Ventas-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        
-        <div class="departamento">
-        
-        <p style="background-color:burlywood;">
-            Después de que un mueble es ensamblado, se le asigna un identificador único y se pone a la venta con
-            un precio que se establece a partir del tipo de mueble ensamblado.
-            Los clientes llegan a la sala de ventas para comprar muebles y con los identificadores de los muebles
-            que desean comprar pasan a la caja en donde se registra el movimiento y se genera la factura para el
-            cliente. Al iniciar el registro de la compra se solicita el NIT, si el NIT ya existe se debe obtener
-            automáticamente el nombre y la dirección del cliente, de lo contrario se debe solicitar esos datos al
-            cliente y registrarlos en el sistema para su uso en la compra actual y compras futuras.
-        </p>
-        
-        </div>
-        
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- Formulario -->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-        
         <%@ page import="myPackage.MainClass" %>
         <%! 
             String usuario_nombre = ""; 
@@ -70,45 +38,58 @@
             MainClass mainClass = new MainClass();
         %>
         
-        <div class="departamento">
-            
-            <h1>Introdución de información</h1>
+        <h1 style="background-color:burlywood;">
+            Mi Mueblería
+        </h1>
         
-            <form action="ventas_accion.jsp" method="post" autocomplete="on">
-                <label for="fname">Usuario </label> 
-                <!-- Llenar los valores con los usuarios -->
-                    <select id="ventas_usuario_nombre_submit" name="ventas_usuario_nombre_submit" size="1">
-                        <% 
-                            String usuariosVentasDisponiblesSelect = mainClass.usuariosVentasDisponiblesSelect();
-                            
-                            out.print(usuariosVentasDisponiblesSelect);
-                        %>
-                        <!--
-                        <option value="pieza0">-----</option>
-                        -->
-                        <!--
-                            <option value="usuario1">usuario1</option>
-                            <option value="usuario2">usuario2</option>
-                            <option value="usuario3">usuario3</option>
-                            <option value="usuario4">usuario4</option>
-                        -->
-                    </select>
-                <!-- Llenar los valores con los usuarios -->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- INGRESO DE BASE DE DATOS-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        
+        <div class="departamento">
+        
+            <center><img src="images/mimuebleria.jpg" alt="Mi Mueblería" align="middle"></center>
+        
+        </div>
+        
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- INGRESO DE BASE DE DATOS-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        
+        <div class="departamento">
+        
+            <h1>INGRESO DE BASE DE DATOS</h1>
+
+            <form action="index_basededatos_login.jsp" method="post" autocomplete="on">
+                <label for="index_basededatos_url">URL de Base de Datos </label>
+                <input type="text" id="index_basededatos_url" name="index_basededatos_url" value="jdbc:mysql://localhost:3306" required="">
                 <br><br>
-                <label for="fname">Password </label>
-                <input type="password" id="ventas_usuario_password_submit" name="ventas_usuario_password_submit" value="" required>
+                <label for="index_basededatos_usuario">Usuario de Base de Datos </label>
+                <input type="text" id="index_basededatos_usuario" name="index_basededatos_usuario" value="root" required="">
                 <br><br>
-                <input type="submit" value="Introducir"><br><br>
+                <label for="index_basededatos_password">Constraseña de Base de Datos </label>
+                <input type="text" id="index_basededatos_password" name="index_basededatos_password" value="123456" required="">
+                <br><br>
+                <input type="submit" id="index_basededatos_ingresar" name="index_basededatos_ingresar" value="Ingresar">
+                <br><br>
             </form>
             
-            <%@ page import="myPackage.MainClass" %>
             <% 
-                usuario_nombre = request.getParameter("ventas_usuario_nombre_submit");
-                usuario_password = request.getParameter("ventas_usuario_password_submit");
+                String usuario_url = request.getParameter("index_basededatos_url");
+                String usuario_nombre = request.getParameter("index_basededatos_usuario");
+                String usuario_password = request.getParameter("index_basededatos_password");
 
-                if (mainClass.IsUsuario(usuario_nombre, usuario_password, "2")) {
+                if (mainClass.mySQLLoginFile(usuario_url, usuario_nombre, usuario_password)) {
                     // Nos manda a la dirección url
-                    response.sendRedirect("ventas_formulario.jsp");
+                    response.sendRedirect("mi_muebleria_intro.jsp");
                 }
             %>
         
@@ -124,8 +105,9 @@
         
         <div class="departamento">
         
-        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
+        <a href="index.jsp">INGRESAR A BASE DE DATOS</a>
         
         </div>
+            
     </body>
 </html>

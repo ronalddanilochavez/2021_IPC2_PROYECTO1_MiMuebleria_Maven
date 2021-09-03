@@ -1,8 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
     <head>
         <title>Fábrica Formulario</title>
         <meta charset="UTF-8">
@@ -114,9 +114,9 @@
             <h1>Modificar pieza</h1>
 
             <form action="fabrica_formulario_ModificarPieza.jsp" method="post" autocomplete="on">
-                <label for="fabrica_modificarpieza_piezas_disponibles">Piezas disponibles </label> 
+                <label for="fabrica_modificarpieza_piezas_disponibles">Pieza </label> 
                 <!-- Llenar los valores con las piezas -->
-                    <select id="fabrica_modificarpieza_piezas_elegir" name="fabrica_modificarpieza_piezas_elegir" size="1">
+                    <select id="fabrica_modificarpieza_tipo" name="fabrica_modificarpieza_tipo" size="1">
                         <% 
                             out.print(piezasDisponiblesSelect);
                         %>
@@ -131,9 +131,6 @@
                         -->
                     </select>
                 <!-- Llenar los valores con las piezas -->
-                <br><br>
-                <label for="fname">Tipo de pieza </label>
-                <input type="text" id="fabrica_modificarpieza_tipo" name="fabrica_modificarpieza_tipo" value="" requested>
                 <br><br>
                 <label for="fname">Cantidad de piezas </label>
                 <input type="text" id="fabrica_modificarpieza_cantidad" name="fabrica_modificarpieza_cantidad" value="" requested>
@@ -157,8 +154,23 @@
             <h1>Borrar pieza</h1>
             
             <form action="fabrica_formulario_BorrarPieza.jsp" method="post" autocomplete="on">
-                <label for="fname">Tipo de pieza </label>
-                <input type="text" id="fabrica_borrarpieza_tipo" name="fabrica_borrarpieza_tipo" value="" requested>
+                <label for="fabrica_modificarpieza_piezas_disponibles">Pieza </label> 
+                <!-- Llenar los valores con las piezas -->
+                    <select id="fabrica_borrarpieza_tipo" name="fabrica_borrarpieza_tipo" size="1">
+                        <% 
+                            out.print(piezasDisponiblesSelect);
+                        %>
+                        <!--
+                        <option value="pieza0">------</option>
+                        -->
+                        <!--
+                        <option value="pieza1">pieza1</option>
+                        <option value="pieza2">pieza2</option>
+                        <option value="pieza3">pieza3</option>
+                        <option value="pieza4">pieza4</option>
+                        -->
+                    </select>
+                <!-- Llenar los valores con las piezas -->
                 <br><br>
                 <input type="submit"  name="fabrica_borrarpieza_borrar" value="Borrar pieza">
                 <br><br>
@@ -183,9 +195,9 @@
                 <label for="fabrica_ensamblarpiezas_nombremueble">Nombre mueble </label>
                 <input type="text" id="fabrica_ensamblarpiezas_nombremueble" name="fabrica_ensamblarpiezas_nombremueble" value="" requested>
                 <br><br>
-                <label for="fabrica_ensamblarpiezas_piezas_disponibles">Piezas disponibles </label> 
+                <label for="fabrica_ensamblarpiezas_piezas_disponibles">Pieza </label> 
                 <!-- Llenar los valores con las piezas -->
-                    <select id="fabrica_ensamblarpiezas_piezas_elegir" name="fabrica_ensamblarpiezas_piezas_elegir" size="1">
+                    <select id="fabrica_ensamblarpiezas_pieza" name="fabrica_ensamblarpiezas_pieza" size="1">
                         <% 
                             out.print(piezasDisponiblesSelect);
                         %>
@@ -200,9 +212,6 @@
                         -->
                     </select>
                 <!-- Llenar los valores con las piezas -->
-                <br><br>
-                <label for="fabrica_ensamblarpiezas_pieza">Pieza </label>
-                <input type="text" id="fabrica_ensamblarpiezas_pieza" name="fabrica_ensamblarpiezas_pieza" value="" requested>
                 <br><br>
                 <label for="fabrica_ensamblarpiezas_cantidad">Cantidad </label>
                 <input type="text" id="fabrica_ensamblarpiezas_cantidad" name="fabrica_ensamblarpiezas_cantidad" value="" requested>
@@ -235,7 +244,7 @@
             <form action="fabrica_formulario_ensamblarMueble.jsp" method="post" autocomplete="on">
                 <label for="fabrica_ensamblarMueble_muebles_disponibles">Muebles disponibles </label> 
                 <!-- Llenar los valores con las piezas -->
-                    <select id="fabrica_ensamblarMueble_muebles_elegir" name="fabrica_ensamblarMueble_muebles_elegir" size="1">
+                <select id="fabrica_ensamblarMueble_nombremueble" name="fabrica_ensamblarMueble_nombremueble" size="1" lang="es">
                         <% 
                             String mueblesDefinidosSelect = mainClass.mueblesDefinidosSelect();
                                     
@@ -253,12 +262,9 @@
                     </select>
                 <!-- Llenar los valores con las piezas -->
                 <br><br>
-                <label for="fabrica_ensamblarMueble_nombremueble">Nombre mueble </label>
-                <input type="text" id="fabrica_ensamblarMueble_nombremueble" name="fabrica_ensamblarMueble_nombremueble" value="" requested>
-                <br><br>
                 <label for="fabrica_ensamblarMueble_usuarios_disponibles">Usuarios disponibles </label> 
                 <!-- Llenar los valores con las piezas -->
-                    <select id="fabrica_ensamblarMueble_usuarios_elegir" name="fabrica_ensamblarMueble_usuarios_elegir" size="1">
+                    <select id="fabrica_ensamblarMueble_usuario" name="fabrica_ensamblarMueble_usuario" size="1">
                         <% 
                             String usuariosFabricaDisponiblesSelect = mainClass.usuariosFabricaDisponiblesSelect();
                             
@@ -276,10 +282,19 @@
                     </select>
                 <!-- Llenar los valores con las piezas -->
                 <br><br>
-                <label for="fabrica_ensamblarMueble_usuario">Usuario </label>
-                <input type="text" id="fabrica_ensamblarMueble_usuario" name="fabrica_ensamblarMueble_usuario" value="" requested>
+                <label for="fabrica_ensamblarMueble_fecha">Fecha </label>
+                <input type="date" id="fabrica_ensamblarMueble_fecha" name="fabrica_ensamblarMueble_fecha" value="" requested>
                 <br><br>
                 <input type="submit" id="fabrica_ensamblarMueble_ensamblarMueble" name="fabrica_ensamblarMueble_ensamblarMueble" value="Ensamblar mueble">
+                <br><br>
+                <% 
+                    String muebleNombre = request.getParameter("fabrica_ensamblarMueble_nombremueble");
+                    String muebleUsuario = request.getParameter("fabrica_ensamblarMueble_usuario");
+                    String muebleFecha = request.getParameter("fabrica_ensamblarMueble_fecha");
+                    String fabricaEnsamblarMueble = mainClass.fabricaEnsamblarMueble(muebleNombre, muebleUsuario, muebleFecha);
+
+                    out.print(fabricaEnsamblarMueble);
+                %>
                 <!-- Ejemplo de datos presentados al usuario -->
                     <!--
                         <h2>ID = 5</h2>
@@ -370,7 +385,7 @@
             <!-- Ejemplo de datos presentados al usuario -->
             <br><br>
             
-            <h1>Consultar muebles ordenados por la cantidad</h1>
+            <h1>Consultar muebles ordenados por fecha</h1>
             
             <form action="fabrica_formulario_ConsultarMuebles_ascendente.jsp" method="post" autocomplete="on">                
                 <input type="submit" id="fabrica_consultarmuebles_consultarascendente" name="fabrica_consultarmuebles_consultarascendente" value="Consultar muebles en forma ascendente">
@@ -426,7 +441,9 @@
         
         <div class="departamento">
         
-        <a href="index.jsp">Mi Mueblería</a>
+        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
+        <br>
+        <a href="fabrica_formulario.jsp">Fábrica</a>
         
         </div>
     </body>

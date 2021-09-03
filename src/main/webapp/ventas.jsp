@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 
@@ -61,15 +61,39 @@
         <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
         <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
         
+        <%@ page import="myPackage.MainClass" %>
+        <%
+            MainClass mainClass = new MainClass();
+        %>
+        
         <div class="departamento">
             
             <h1>Introdución de información</h1>
         
             <form action="ventas_accion.jsp" method="post" autocomplete="on">
-                <label for="fname">Usuario </label>
-                <input type="text" id="ventas_usuario_nombre_submit" name="ventas_usuario_nombre_submit" value=""><br><br>
+                <label for="fname">Usuario </label> 
+                <!-- Llenar los valores con los usuarios -->
+                    <select id="ventas_usuario_nombre_submit" name="ventas_usuario_nombre_submit" size="1">
+                        <% 
+                            String usuariosVentasDisponiblesSelect = mainClass.usuariosVentasDisponiblesSelect();
+                            
+                            out.print(usuariosVentasDisponiblesSelect);
+                        %>
+                        <!--
+                        <option value="pieza0">-----</option>
+                        -->
+                        <!--
+                            <option value="usuario1">usuario1</option>
+                            <option value="usuario2">usuario2</option>
+                            <option value="usuario3">usuario3</option>
+                            <option value="usuario4">usuario4</option>
+                        -->
+                    </select>
+                <!-- Llenar los valores con los usuarios -->
+                <br><br>
                 <label for="fname">Password </label>
-                <input type="password" id="ventas_usuario_password_submit" name="ventas_usuario_password_submit" value=""><br><br>
+                <input type="password" id="ventas_usuario_password_submit" name="ventas_usuario_password_submit" value="" required>
+                <br><br>
                 <input type="submit" value="Introducir"><br><br>
             </form>
         
@@ -85,7 +109,7 @@
         
         <div class="departamento">
         
-        <a href="index.jsp">Mi Mueblería</a>
+        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
         
         </div>
     </body>

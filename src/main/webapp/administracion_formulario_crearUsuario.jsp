@@ -531,14 +531,7 @@
                 <input type="text" id="administracion_ensamblarpiezas_cantidad" name="administracion_ensamblarpiezas_cantidad" value="" required>
                 <br><br>
                 <input type="submit" id="administracion_ensamblarmueble_agregarpieza" name="administracion_ensamblarmueble_agregarpieza" value="Agregar pieza">
-                <%
-                    String muebleNombre = request.getParameter("administracion_ensamblarpiezas_nombremueble");
-                    String mueblePieza = request.getParameter("administracion_ensamblarpiezas_pieza");
-                    String muebleCantidad = request.getParameter("administracion_ensamblarpiezas_cantidad");
-                    String fabricaDefinirEnsamblePiezas = mainClass.fabricaDefinirEnsamblePiezas(muebleNombre, mueblePieza, muebleCantidad);
-                    
-                    out.print(fabricaDefinirEnsamblePiezas);
-                %>
+                
                 <!-- Ejemplo de datos presentados al usuario -->
                     <!--
                         <p>Mesa redonda con patas cuadradas, Pata cuadrada, 4</p>
@@ -577,9 +570,18 @@
                     <option value="Fabrica">Fabrica</option>
                     <option value="Ventas">Ventas</option>
                     <option value="Administracion">Administracion</option>
-                </select> 
+                </select>  
                 <br><br>
                 <input type="submit" value="Crear">
+                <br><br>
+                <% 
+                    String usuarioNombre = request.getParameter("administracion_usuario_crear");
+                    String usuarioPassword = request.getParameter("administracion_password_crear");
+                    String usuarioTipo = request.getParameter("administracion_tipo_crear");
+                    String administracionCrearUsuario = mainClass.administracionCrearUsuario(usuarioNombre, usuarioPassword, usuarioTipo);
+                    
+                    out.print(administracionCrearUsuario);
+                %>
                 <br><br>
             </form>
             
@@ -693,7 +695,7 @@
         
         <div class="departamento">
         
-        <a href="index.jsp">Mi Mueblería</a>
+        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
         <br>
         <a href="administracion_formulario.jsp">Administración</a>
         

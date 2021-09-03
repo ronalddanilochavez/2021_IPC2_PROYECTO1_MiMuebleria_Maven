@@ -180,6 +180,12 @@
                 <br><br>
                 <input type="submit" value="Confirmar devolución">
                 <br><br>
+                <% 
+                    String muebleID = request.getParameter("ventas_devolucion_muebleID");
+                    String ventasDevoluciones = mainClass.ventasDevoluciones(muebleID);
+                    
+                    out.print(ventasDevoluciones);
+                %>
                 <!-- Datos para elegir -->
                     <!-- Si el mueble NO puede ser devuelto -->
                     <!--

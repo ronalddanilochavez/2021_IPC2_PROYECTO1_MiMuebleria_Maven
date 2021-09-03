@@ -402,6 +402,11 @@
                             <th>Costo</th>
                             <th>Precio</th>
                         </tr>
+                        <% 
+                            String ventasConsultaMueblesDisponibles = mainClass.ventasConsultaMueblesDisponibles();
+                            
+                            out.print(ventasConsultaMueblesDisponibles);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>

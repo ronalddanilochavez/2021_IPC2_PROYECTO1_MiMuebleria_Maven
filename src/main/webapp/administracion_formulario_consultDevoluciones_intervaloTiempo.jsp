@@ -152,6 +152,13 @@
                             <th>Fecha devolución</th>
                             <th>Pérdida</th>
                         </tr>
+                        <% 
+                            String fechaInicial = request.getParameter("administracion_consultadevoluciones_fechainicial");
+                            String fechaFinal = request.getParameter("administracion_consultadevoluciones_fechafinal");
+                            String administracionConsultaDevoluciones = mainClass.administracionConsultaDevoluciones(fechaInicial, fechaFinal,false);
+                            
+                            out.print(administracionConsultaDevoluciones);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>
@@ -168,12 +175,14 @@
                 <br><br>
             </form>
             
-            <!--
             <form action="administracion_formulario_consultDevoluciones_intervaloTiempo_CSV.jsp" method="post" autocomplete="on">
-                <input type="submit" id="administracion_consultadevoluciones_exportar" name="administracion_consultadevoluciones_exportar" value="Exportar archivo CSV">
+                <label for="fname" hidden=""> Fecha inicial </label>
+                <input type="date" id="administracion_consultadevolucionesCSV_fechainicial" name="administracion_consultadevolucionesCSV_fechainicial" value="<% out.print(fechaInicial);%>" readonly="" hidden="">
+                <label for="fname" hidden=""> Fecha final </label>
+                <input type="date" id="administracion_consultadevolucionesCSV_fechafinal" name="administracion_consultadevolucionesCSV_fechafinal" value="<% out.print(fechaFinal);%>" readonly="" hidden="">
+                <input type="submit" id="administracion_consultadevolucionesCSV_exportar" name="administracion_consultadevoluciones_exportar" value="Exportar archivo CSV">
                 <br><br>
             </form>
-            -->
         
         </div>
         
@@ -531,14 +540,7 @@
                 <input type="text" id="administracion_ensamblarpiezas_cantidad" name="administracion_ensamblarpiezas_cantidad" value="" required>
                 <br><br>
                 <input type="submit" id="administracion_ensamblarmueble_agregarpieza" name="administracion_ensamblarmueble_agregarpieza" value="Agregar pieza">
-                <%
-                    String muebleNombre = request.getParameter("administracion_ensamblarpiezas_nombremueble");
-                    String mueblePieza = request.getParameter("administracion_ensamblarpiezas_pieza");
-                    String muebleCantidad = request.getParameter("administracion_ensamblarpiezas_cantidad");
-                    String fabricaDefinirEnsamblePiezas = mainClass.fabricaDefinirEnsamblePiezas(muebleNombre, mueblePieza, muebleCantidad);
-                    
-                    out.print(fabricaDefinirEnsamblePiezas);
-                %>
+                
                 <!-- Ejemplo de datos presentados al usuario -->
                     <!--
                         <p>Mesa redonda con patas cuadradas, Pata cuadrada, 4</p>
@@ -585,7 +587,7 @@
             
             <!-- Bloquear usuario -->
             
-            <h1>Bloquear o desbloquear usuario </h1>
+            <h1>Bloquear o desbloqeuar usuario </h1>
             
             <form action="administracion_formulario_bloquearUsuario.jsp" method="post" autocomplete="on">
                 <label for="administracion_usuarios_disponibles">Usuario </label> 
@@ -609,7 +611,7 @@
                 <input type="submit" value="Bloquear">
                 <br><br>
             </form>
-                        
+            
             <form action="administracion_formulario_desbloquearUsuario.jsp" method="post" autocomplete="on">
                 <label for="administracion_usuarios_disponibles">Usuario </label> 
                 <!-- Llenar los valores con las usuarios -->
@@ -693,7 +695,7 @@
         
         <div class="departamento">
         
-        <a href="index.jsp">Mi Mueblería</a>
+        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
         <br>
         <a href="administracion_formulario.jsp">Administración</a>
         

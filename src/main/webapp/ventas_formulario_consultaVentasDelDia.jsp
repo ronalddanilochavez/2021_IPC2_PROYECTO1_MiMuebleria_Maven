@@ -298,6 +298,12 @@
                             <th>NIT cliente</th>
                             <th>Fecha venta</th>
                         </tr>
+                        <% 
+                            String fechaDelDia = request.getParameter("ventas_consultaventasdeldia_fechainicial");
+                            String ventasConsultaVentasDelDia = mainClass.ventasConsultaVentasDelDia(fechaDelDia);
+                            
+                            out.print(ventasConsultaVentasDelDia);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>

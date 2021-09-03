@@ -341,6 +341,13 @@
                             <th>NIT cliente</th>
                             <th>Fecha venta</th>
                         </tr>
+                        <% 
+                            String fechaInicial = request.getParameter("administracion_consultausuariogananciasCSV_fechainicial");
+                            String fechaFinal = request.getParameter("administracion_consultausuariogananciasCSV_fechafinal");
+                            String administracionConsultaUsuarioMasGanancias = mainClass.administracionConsultaUsuarioMasGanancias(fechaInicial, fechaFinal,true);
+                            
+                            out.print(administracionConsultaUsuarioMasGanancias);
+                        %>
                         <!--
                         <tr>
                             <td>ALSDHLAKJHSD</td>
@@ -362,7 +369,7 @@
             
             <!--
             <form action="administracion_formulario_consultaUsuarioMasGanancias_intervaloTiempo_CSV.jsp" method="post" autocomplete="on">
-                <input type="submit" id="administracion_consultausuarioganancias_exportar" name="administracion_consultausuarioganancias_exportar" value="Exportar archivo CSV">
+                <input type="submit" id="administracion_consultausuariogananciasCSV_exportar" name="administracion_consultausuariogananciasCSV_exportar" value="Exportar archivo CSV">
                 <br><br>
             </form>
             -->
@@ -531,14 +538,7 @@
                 <input type="text" id="administracion_ensamblarpiezas_cantidad" name="administracion_ensamblarpiezas_cantidad" value="" required>
                 <br><br>
                 <input type="submit" id="administracion_ensamblarmueble_agregarpieza" name="administracion_ensamblarmueble_agregarpieza" value="Agregar pieza">
-                <%
-                    String muebleNombre = request.getParameter("administracion_ensamblarpiezas_nombremueble");
-                    String mueblePieza = request.getParameter("administracion_ensamblarpiezas_pieza");
-                    String muebleCantidad = request.getParameter("administracion_ensamblarpiezas_cantidad");
-                    String fabricaDefinirEnsamblePiezas = mainClass.fabricaDefinirEnsamblePiezas(muebleNombre, mueblePieza, muebleCantidad);
-                    
-                    out.print(fabricaDefinirEnsamblePiezas);
-                %>
+                
                 <!-- Ejemplo de datos presentados al usuario -->
                     <!--
                         <p>Mesa redonda con patas cuadradas, Pata cuadrada, 4</p>
@@ -585,7 +585,7 @@
             
             <!-- Bloquear usuario -->
             
-            <h1>Bloquear o desbloquear usuario </h1>
+            <h1>Bloquear o desbloqeuar usuario </h1>
             
             <form action="administracion_formulario_bloquearUsuario.jsp" method="post" autocomplete="on">
                 <label for="administracion_usuarios_disponibles">Usuario </label> 
@@ -609,7 +609,7 @@
                 <input type="submit" value="Bloquear">
                 <br><br>
             </form>
-                        
+            
             <form action="administracion_formulario_desbloquearUsuario.jsp" method="post" autocomplete="on">
                 <label for="administracion_usuarios_disponibles">Usuario </label> 
                 <!-- Llenar los valores con las usuarios -->
@@ -693,7 +693,7 @@
         
         <div class="departamento">
         
-        <a href="index.jsp">Mi Mueblería</a>
+        <a href="mi_muebleria_intro.jsp">Mi Mueblería</a>
         <br>
         <a href="administracion_formulario.jsp">Administración</a>
         

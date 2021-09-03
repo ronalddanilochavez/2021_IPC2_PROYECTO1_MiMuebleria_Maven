@@ -132,6 +132,18 @@
                 <input type="date" id="ventas_fechaventa" name="ventas_fechaventa" value="" required="">
                 <br><br>
                 <input type="submit" value="Crear factura">
+                <% 
+                    String NITCliente = request.getParameter("ventas_NITCliente_factura");
+                    String nombreCliente = request.getParameter("ventas_nombrecliente");
+                    String direccionCliente = request.getParameter("ventas_direccioncliente");
+                    String municipio = request.getParameter("ventas_municipio");
+                    String departamento = request.getParameter("ventas_departamento");
+                    String muebleID = request.getParameter("ventas_mueble_ID");
+                    String fechaVenta = request.getParameter("ventas_fechaventa");
+                    String ventas_crearFactura = mainClass.ventasCrearFactura(NITCliente,nombreCliente,direccionCliente,municipio,departamento,muebleID,fechaVenta);
+
+                    out.print(ventas_crearFactura);
+                %>
                 <br><br>
             </form>
             
