@@ -2937,13 +2937,13 @@ public class MainClass {
                 }
             }
             
-            // Para exportar el archivo CSV
+            // Para exportar el archivo 
             if (exportarCSV) {
                 String linea = "";
-                
+
                 linea += "ID de Mueble,Nombre de Mueble,Usuario,Costo,Precio,Cantidad,Ganancia,Nombre de Cliente,NIT de Cliente,Fecha de Venta";
                 arrayAdministracion.add(linea);
-                
+
                 for (int i = 0; i < arrayMueblesVendidos.size(); i++) {
                     linea = "";
                     linea += arrayMueblesVendidos.get(i).getIdentificadorMueble() + ",";
@@ -2956,10 +2956,10 @@ public class MainClass {
                     linea += arrayMueblesVendidos.get(i).getNombreCliente() + ",";
                     linea += arrayMueblesVendidos.get(i).getNITCliente() + ",";
                     linea += arrayMueblesVendidos.get(i).getFechaVenta() + ",";
-                    
+
                     arrayAdministracion.add(linea);
                 }
-                
+
                 guardarArchivoCSV();
             }
             
@@ -3013,7 +3013,7 @@ public class MainClass {
             }
             else if (fechaInicial.equals("") && !fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -3023,7 +3023,7 @@ public class MainClass {
             }
             else if (!fechaInicial.equals("") && fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -3033,7 +3033,7 @@ public class MainClass {
             }
             else if (!fechaInicial.equals("") && !fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta >= ? AND FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion >= ? AND FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -3227,7 +3227,7 @@ public class MainClass {
             }
             else if (fechaInicial.equals("") && (!fechaFinal.equals(""))){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -3237,7 +3237,7 @@ public class MainClass {
             }
             else if ((!fechaInicial.equals("")) && fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -3247,7 +3247,7 @@ public class MainClass {
             }
             else if ((!fechaInicial.equals("")) && (!fechaFinal.equals(""))){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaVenta >= ? AND FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE FechaDevolucion >= ? AND FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
