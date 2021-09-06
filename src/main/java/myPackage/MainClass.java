@@ -48,6 +48,10 @@ public class MainClass {
         System.out.println("Hola mundo");
     }
     
+    /**
+     * Conexion de mySQL
+     */
+    
     // Conexion de mySQL
     public void mySQLConnect () {
         try {
@@ -109,6 +113,14 @@ public class MainClass {
         }
     }
     
+    /**
+     * Archivo de login de mySQL
+     * @param usuario_url
+     * @param usuario_nombre
+     * @param usuario_password
+     * @return boolean
+     */
+    
     public boolean mySQLLoginFile(String usuario_url, String usuario_nombre, String usuario_password) {
         
         PrintWriter fileOut; // conexión al archivo HTML
@@ -153,6 +165,14 @@ public class MainClass {
         
         return true;
     }
+    
+    /**
+     * Para buscar la lista de usuarios disponibles
+     * @param nombre
+     * @param password
+     * @param tipo
+     * @return boolean
+     */
     
     // Para buscar la lista de usuarios disponibles
     public boolean IsUsuario(String nombre, String password, String tipo) {
@@ -212,6 +232,11 @@ public class MainClass {
         
         return isTrue;
     }
+    
+    /**
+     * Para buscar las piezas disponibles
+     * @return String
+     */
     
     // Para buscar las piezas disponibles
     public String piezasDisponiblesSelect() {
@@ -276,6 +301,11 @@ public class MainClass {
         return piezasSelect;
     }
     
+    /**
+     * Para buscar los muebles disponibles
+     * @return String
+     */
+    
     // Para buscar los muebles disponibles
     public String mueblesDisponiblesSelect() {
         String mueblesSelect = "<option value=\"mueble0\">------</option>";
@@ -339,6 +369,11 @@ public class MainClass {
         
         return mueblesSelect;
     }
+    
+    /**
+     * Para buscar los muebles disponibles
+     * @return String
+     */
     
     // Para buscar los muebles disponibles
     public String mueblesVendidosDisponiblesSelect() {
@@ -407,6 +442,11 @@ public class MainClass {
         
         return mueblesSelect;
     }
+    
+    /**
+     * Para buscar los muebles definidos
+     * @return String
+     */
     
     // Para buscar los muebles definidos
     public String mueblesDefinidosSelect() {
@@ -482,6 +522,11 @@ public class MainClass {
         return mueblesSelect;
     }
     
+    /**
+     * Para buscar los usuarios de fábrica disponibles
+     * @return String
+     */
+    
     // Para buscar los usuarios de fábrica disponibles
     public String usuariosFabricaDisponiblesSelect() {
         String usuariosFabricaDisponiblesSelect = "<option value=\"usuario0\">------</option>";
@@ -544,6 +589,11 @@ public class MainClass {
         
         return usuariosFabricaDisponiblesSelect;
     }
+    
+    /**
+     * Para buscar los usuarios de ventas disponibles
+     * @return String
+     */
     
     // Para buscar los usuarios de ventas disponibles
     public String usuariosVentasDisponiblesSelect() {
@@ -608,6 +658,11 @@ public class MainClass {
         return usuariosFabricaDisponiblesSelect;
     }
     
+    /**
+     * Para buscar los usuarios de administración disponibles
+     * @return String
+     */
+    
     // Para buscar los usuarios de administración disponibles
     public String usuariosAdministracionDisponiblesSelect() {
         String usuariosFabricaDisponiblesSelect = "<option value=\"usuario0\">------</option>";
@@ -671,6 +726,11 @@ public class MainClass {
         return usuariosFabricaDisponiblesSelect;
     }
     
+    /**
+     * Para buscar los clientes disponibles
+     * @return String
+     */
+    
     // Para buscar los clientes disponibles
     public String clientesDisponiblesSelect() {
         String clientesSelect = "<option value=\"cliente0\">------</option>";
@@ -733,6 +793,11 @@ public class MainClass {
         
         return clientesSelect;
     }
+    
+    /**
+     * Para buscar los usuarios disponibles
+     * @return String
+     */
     
     // Para buscar los usuarios disponibles
     public String usuariosDisponiblesSelect() {
@@ -805,6 +870,11 @@ public class MainClass {
         
         return usuariosSelect;
     }
+    
+    /**
+     * Para buscar las piezas que estan por agotarse
+     * @return String
+     */
     
     // Para buscar las piezas que estan por agotarse
     public String piezasPorAgotarse() {
@@ -897,6 +967,14 @@ public class MainClass {
         
         return piezasPorAgotarse;
     }
+    
+    /**
+     * Para crear una pieza nueva
+     * @param piezaTipo
+     * @param piezaCosto
+     * @param piezaCantidad
+     * @return String
+     */
     
     // Para crear una pieza nueva
     public String fabricaCrearPieza(String piezaTipo, String piezaCosto, String piezaCantidad) {
@@ -1000,6 +1078,14 @@ public class MainClass {
         return crearPieza;
     }
     
+    /**
+     * Para modificar una pieza nueva
+     * @param piezaTipo
+     * @param piezaCosto
+     * @param piezaCantidad
+     * @return String
+     */
+    
     // Para modificar una pieza nueva
     public String fabricaModificarPieza(String piezaTipo, String piezaCosto, String piezaCantidad) {
         String modificarPieza = "";
@@ -1086,6 +1172,12 @@ public class MainClass {
         return modificarPieza;
     }
     
+    /**
+     * Para borrar una pieza nueva
+     * @param piezaTipo
+     * @return String
+     */
+    
     // Para borrar una pieza nueva
     public String fabricaBorrarPieza(String piezaTipo) {
         String borrarPieza = "";
@@ -1121,6 +1213,14 @@ public class MainClass {
         
         return borrarPieza = "<h2>Pieza borrada</h2><h2>Tipo: " + piezaTipo + "</h2><br><br>";
     }
+    
+    /**
+     * Para definir ensamble de mueble a partir de piezas
+     * @param muebleNombre
+     * @param mueblePieza
+     * @param muebleCantidad
+     * @return String
+     */
     
     // Para definir ensamble de mueble a partir de piezas
     public String fabricaDefinirEnsamblePiezas(String muebleNombre, String mueblePieza, String muebleCantidad) {
@@ -1193,6 +1293,14 @@ public class MainClass {
         
         return definirEnsamblePiezas;
     }
+    
+    /**
+     * Para ensamblar muebles a partir de piezas
+     * @param muebleNombre
+     * @param muebleUsuario
+     * @param muebleFecha
+     * @return String
+     */
     
     // Para ensamblar muebles a partir de piezas
     public String fabricaEnsamblarMueble(String muebleNombre, String muebleUsuario, String muebleFecha) {
@@ -1421,7 +1529,12 @@ public class MainClass {
                     }
                 }
                 
-                ensamblarMueblePrecio = ensamblarMuebleCosto + 50.0;
+                if (ensamblarMuebleCosto > 0) {
+                    ensamblarMueblePrecio = ensamblarMuebleCosto + 50.0;
+                }
+                else {
+                    ensamblarMueblePrecio = 0;
+                }
                 
                 // Para ensamblar el mueble completo
                 ps = connection.prepareStatement("REPLACE INTO mimuebleria.ensamblarmuebles VALUES (?,?,?,?,?,?)");
@@ -1465,6 +1578,11 @@ public class MainClass {
         
         return ensamblarMueble;
     }
+    
+    /**
+     * Para consultar las piezas de manera ascendente
+     * @return String
+     */
     
     // Para consultar las piezas de manera ascendente
     public String fabricaConsultarPiezasAscendente() {
@@ -1586,6 +1704,11 @@ public class MainClass {
         return piezasAscendente;
     }
     
+    /**
+     * Para consultar las piezas de manera ascendente
+     * @return String
+     */
+    
     // Para consultar las piezas de manera ascendente
     public String fabricaConsultarPiezasDescendente() {
         String piezasDescendente = "";
@@ -1706,6 +1829,11 @@ public class MainClass {
         return piezasDescendente;
     }
     
+    /**
+     * Para buscar los muebles de manera ascendente
+     * @return String
+     */
+    
     // Para buscar los muebles de manera ascendente
     public String fabricaConsultarMueblesAscendente() {
         String mueblesAscendente = "";
@@ -1768,6 +1896,11 @@ public class MainClass {
         return mueblesAscendente;
     }
     
+    /**
+     * Para buscar los muebles de manera descendente
+     * @return String
+     */
+    
     // Para buscar los muebles de manera descendente
     public String fabricaConsultarMueblesDescendente() {
         String mueblesDescendente = "";
@@ -1829,6 +1962,12 @@ public class MainClass {
         
         return mueblesDescendente;
     }
+    
+    /**
+     * Para buscar el NIT de los clientes disponibles
+     * @param NITCliente
+     * @return String
+     */
     
     // Para buscar el NIT de los clientes disponibles
     public String ventasConsultarNITClientes(String NITCliente) {
@@ -1931,6 +2070,18 @@ public class MainClass {
         
         return ventasConsultarNITClientes;
     }
+    
+    /**
+     * Para creear la factura de la venta
+     * @param NITCliente
+     * @param nombreCliente
+     * @param direccionCliente
+     * @param municipio
+     * @param departamento
+     * @param muebleID
+     * @param fechaVenta
+     * @return String
+     */
     
     // Para creear la factura de la venta
     public String ventasCrearFactura(String NITCliente,String nombreCliente,String direccionCliente,String municipio,String departamento,String muebleID,String fechaVenta) {
@@ -2058,6 +2209,12 @@ public class MainClass {
         
         return ventasCrearFactura;
     }
+    
+    /**
+     * Para efectuar una devolución
+     * @param muebleID
+     * @return String
+     */
     
     // Para efectuar una devolución
     public String ventasDevoluciones(String muebleID) {
@@ -2278,6 +2435,14 @@ public class MainClass {
         return ventasDevoluciones;
     }
     
+    /**
+     * Para consultar las compras de un cliente
+     * @param NITCliente
+     * @param fechaInicial
+     * @param fechaFinal
+     * @return String
+     */
+    
     // Para consultar las compras de un cliente
     public String ventasConsultaDeComprasCliente(String NITCliente,String fechaInicial, String fechaFinal) {
         String ventasConsultaDeComprasCliente = "";
@@ -2392,6 +2557,12 @@ public class MainClass {
         return ventasConsultaDeComprasCliente;
     }
     
+    /**
+     * Para consultar las compras de un cliente
+     * @param fechaDelDia
+     * @return String
+     */
+    
     // Para consultar las compras de un cliente
     public String ventasConsultaVentasDelDia(String fechaDelDia) {
         String ventasConsultaVentasDelDia = "";
@@ -2467,6 +2638,14 @@ public class MainClass {
         
         return ventasConsultaVentasDelDia;
     }
+    
+    /**
+     * Para consultar las devoluciones de un cliente
+     * @param NITCliente
+     * @param fechaInicial
+     * @param fechaFinal
+     * @return String
+     */
     
     // Para consultar las devoluciones de un cliente
     public String ventasConsultaDevolucionesCliente(String NITCliente,String fechaInicial, String fechaFinal) {
@@ -2576,6 +2755,11 @@ public class MainClass {
         return ventasConsultaDevolucionesCliente;
     }
     
+    /**
+     * Para consultar los muebles disponibles en la sala de ventas
+     * @return String
+     */
+    
     // Para consultar los muebles disponibles en la sala de ventas
     public String ventasConsultaMueblesDisponibles() {
         String ventasConsultaMueblesDisponibles = "";
@@ -2642,6 +2826,14 @@ public class MainClass {
         
         return ventasConsultaMueblesDisponibles;
     }
+    
+    /**
+     * Para consultar las ventas en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
     
     // Para consultar las ventas en un intervalo de tiempo
     public String administracionConsultaVentas(String fechaInicial, String fechaFinal, boolean exportarCSV) {
@@ -2784,6 +2976,14 @@ public class MainClass {
         return administracionConsultaVentas;
     }
     
+    /**
+     * Para consultar las devoluciones en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
+    
     // Para consultar las devoluciones en un intervalo de tiempo
     public String administracionConsultaDevoluciones(String fechaInicial, String fechaFinal, boolean exportarCSV) {
         String administracionConsultaDevoluciones = "";
@@ -2914,6 +3114,14 @@ public class MainClass {
         
         return administracionConsultaDevoluciones;
     }
+    
+    /**
+     * Para consultar las ganancias en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
     
     // Para consultar las ganancias en un intervalo de tiempo
     public String administracionConsultaGanancias(String fechaInicial, String fechaFinal, boolean exportarCSV) {
@@ -3149,6 +3357,14 @@ public class MainClass {
         
         return administracionConsultaGanancias;
     }
+
+    /**
+     * Para consultar el usuario con más ventas en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
     
     // Para consultar el usuario con más ventas en un intervalo de tiempo
     public String administracionConsultaUsuarioMasVentas(String fechaInicial, String fechaFinal, boolean exportarCSV) {
@@ -3352,6 +3568,14 @@ public class MainClass {
         
         return administracionConsultaUsuarioMasVentas;
     }
+    
+    /**
+     * Para consultar el usuario con más ganancias en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
     
     // Para consultar el usuario con más ganancias en un intervalo de tiempo
     public String administracionConsultaUsuarioMasGanancias(String fechaInicial, String fechaFinal, boolean exportarCSV) {
@@ -3559,6 +3783,14 @@ public class MainClass {
         return administracionConsultaUsuarioMasGanancias;
     }
     
+    /**
+     * Para consultar el mueble con más ventas en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
+    
     // Para consultar el mueble con más ventas en un intervalo de tiempo
     public String administracionConsultaMuebleMasVentas(String fechaInicial, String fechaFinal, boolean exportarCSV) {
         String administracionConsultaMuebleMasVentas = "";
@@ -3763,6 +3995,14 @@ public class MainClass {
         
         return administracionConsultaMuebleMasVentas;
     }
+    
+    /**
+     * Para consultar el mueble con Menos ventas en un intervalo de tiempo
+     * @param fechaInicial
+     * @param fechaFinal
+     * @param exportarCSV
+     * @return String
+     */
     
     // Para consultar el mueble con Menos ventas en un intervalo de tiempo
     public String administracionConsultaMuebleMenosVentas(String fechaInicial, String fechaFinal, boolean exportarCSV) {
@@ -3969,6 +4209,14 @@ public class MainClass {
         return administracionConsultaMuebleMenosVentas;
     }
     
+    /**
+     * Para crear un usuario nuevo
+     * @param usuarioNombre
+     * @param usuarioPassword
+     * @param usuarioTipo
+     * @return String
+     */
+    
     // Para crear un usuario nuevo
     public String administracionCrearUsuario(String usuarioNombre, String usuarioPassword, String usuarioTipo) {
         String administracionCrearUsuario = "";
@@ -4018,6 +4266,12 @@ public class MainClass {
         
         return administracionCrearUsuario;
     }
+    
+    /**
+     * Para bloquear un usuario existente
+     * @param usuarioNombre
+     * @return String
+     */
     
     // Para bloquear un usuario existente
     public String administracionBloquearUsuario(String usuarioNombre) {
@@ -4096,6 +4350,12 @@ public class MainClass {
         return administracionBloquearUsuario;
     }
     
+    /**
+     * Para desbloquear un usuario existente
+     * @param usuarioNombre
+     * @return String
+     */
+    
     // Para desbloquear un usuario existente
     public String administracionDesbloquearUsuario(String usuarioNombre) {
         String administracionDesbloquearUsuario = "";
@@ -4173,6 +4433,12 @@ public class MainClass {
         return administracionDesbloquearUsuario;
     }
     
+    /**
+     * Para borrar un usuario existente
+     * @param usuarioNombre
+     * @return String
+     */
+    
     // Para borrar un usuario existente
     public String administracionBorrarUsuario(String usuarioNombre) {
         String administracionBorrarUsuario = "";
@@ -4237,6 +4503,11 @@ public class MainClass {
         
         return administracionBorrarUsuario;
     }
+    
+    /**
+     * Para borrar un usuario existente
+     * @return String
+     */
     
     // Para borrar un usuario existente
     public String administracionBorrarUsuario() {
@@ -4305,6 +4576,11 @@ public class MainClass {
     ///////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////
     
+    /**
+     * To load a file with new information to be inserted in database
+     * @param fileName 
+     */
+    
     // To load a file with new information to be inserted in database
     public void loadFile(String fileName) {
         Scanner stdIn = new Scanner(System.in);
@@ -4329,6 +4605,11 @@ public class MainClass {
         }        
     }
     
+    /**
+     * Para importar un archivo de Base de Datos
+     */
+    
+    // Para importar un archivo de Base de Datos
     private void ImportDatabaseFile() {                                                  
 
         JFileChooser fileChooser = new JFileChooser();
@@ -4354,6 +4635,11 @@ public class MainClass {
         }
     }   
     
+    /**
+     * Para guardar un archivo CSV
+     */
+    
+    // Para guardar un archivo CSV
     public void guardarArchivoCSV() {
         PrintWriter fileOut; // conexión al archivo HTML
 
