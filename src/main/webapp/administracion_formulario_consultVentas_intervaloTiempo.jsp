@@ -127,7 +127,7 @@
                 <label for="fname" hidden=""> Fecha inicial </label>
                 <input type="date" id="administracion_consultaventasCSV_fechainicial" name="administracion_consultaventasCSV_fechainicial" value="<% out.print(fechaInicial);%>" readonly="" hidden="">
                 <label for="fname" hidden=""> Fecha final </label>
-                <input type="date" id="administracion_consultaventasCSV_fechafinal" name="administracion_consultaventasCSV_fechafinal" value="<% out.print(fechaInicial);%>" readonly="" hidden="">
+                <input type="date" id="administracion_consultaventasCSV_fechafinal" name="administracion_consultaventasCSV_fechafinal" value="<% out.print(fechaFinal);%>" readonly="" hidden="">
                 <input type="submit" id="administracion_consultaventasCSV_exportar" name="administracion_consultaventas_exportar" value="Exportar archivo CSV">
                 <br><br>
             </form>

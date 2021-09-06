@@ -100,7 +100,7 @@
                         <% 
                             String fechaInicial = request.getParameter("administracion_consultaventasCSV_fechainicial");
                             String fechaFinal = request.getParameter("administracion_consultaventasCSV_fechafinal");
-                            String administracionConsultaVentas = mainClass.administracionConsultaVentas(fechaInicial, fechaFinal,true);
+                            String administracionConsultaVentas = mainClass.administracionConsultaVentas(fechaInicial, fechaFinal, true);
                             
                             out.print(administracionConsultaVentas);
                         %>

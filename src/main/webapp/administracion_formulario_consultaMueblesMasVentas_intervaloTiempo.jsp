@@ -435,7 +435,7 @@
                 <label for="fname" hidden=""> Fecha inicial </label>
                 <input type="date" id="administracion_consultamuebleventasCSV_fechainicial" name="administracion_consultamuebleventasCSV_fechainicial" value="<% out.print(fechaInicial);%>" readonly="" hidden="">
                 <label for="fname" hidden=""> Fecha final </label>
-                <input type="date" id="administracion_consultamuebleventasCSV_fechafinal" name="administracion_consultamuebleventasCSV_fechafinal" value="<% out.print(fechaInicial);%>" readonly="" hidden="">
+                <input type="date" id="administracion_consultamuebleventasCSV_fechafinal" name="administracion_consultamuebleventasCSV_fechafinal" value="<% out.print(fechaFinal);%>" readonly="" hidden="">
                 <input type="submit" id="administracion_consultamuebleventasCSV_exportar" name="administracion_consultamuebleventas_exportar" value="Exportar archivo CSV">
                 <br><br>
             </form>
