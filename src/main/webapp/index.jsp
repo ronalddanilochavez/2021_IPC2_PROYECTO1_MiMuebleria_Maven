@@ -73,9 +73,9 @@
                 <input type="text" id="index_basededatos_url" name="index_basededatos_url" value="jdbc:mysql://localhost:3306" required="">
                 <br><br>
                 <label for="index_basededatos_usuario">Usuario de Base de Datos </label>
-                <input type="text" id="index_basededatos_usuario" name="index_basededatos_usuario" value="root" required="">
+                <input type="text" id="index_basededatos_usuario" name="index_basededatos_usuario" value="MiMuebleria" required="">
                 <br><br>
-                <label for="index_basededatos_password">Constraseña de Base de Datos </label>
+                <label for="index_basededatos_password">Contraseña de Base de Datos </label>
                 <input type="text" id="index_basededatos_password" name="index_basededatos_password" value="123456" required="">
                 <br><br>
                 <input type="submit" id="index_basededatos_ingresar" name="index_basededatos_ingresar" value="Ingresar">

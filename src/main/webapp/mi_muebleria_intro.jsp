@@ -56,7 +56,7 @@
                 cumplan con la responsabilidad de este libro.
             </p>
             <a href="fabrica.jsp">Área de Fábrica</a><br><br>
-            <a href="fabrica_formulario.jsp">Área de Fábrica Formulario</a>
+            <!--<a href="fabrica_formulario.jsp">Área de Fábrica Formulario</a>-->
         
         </div>
         
@@ -82,7 +82,7 @@
                 cliente y registrarlos en el sistema para su uso en la compra actual y compras futuras.
             </p>
             <a href="ventas.jsp">Área de Punto de Ventas</a><br><br>
-            <a href="ventas_formulario.jsp">Área de Punto de Ventas Formulario</a>
+            <!--<a href="ventas_formulario.jsp">Área de Punto de Ventas Formulario</a>-->
         
         </div>
         
@@ -104,7 +104,7 @@
                 fábrica genera en un intervalo de tiempo.
             </p>
             <a href="administracion.jsp">Área Financiera y Administración</a><br><br>
-            <a href="administracion_formulario.jsp">Área Financiera y Administración Formulario</a>
+            <!--<a href="administracion_formulario.jsp">Área Financiera y Administración Formulario</a>-->
         
         </div>
         
