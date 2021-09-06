@@ -338,7 +338,9 @@
                 <!-- Llenar con datos -->
                     <select id="ventas_consultadevoluciones_NITCliente" name="ventas_consultadevoluciones_NITCliente" size="1">
                         <% 
-                            out.print(clientesDisponiblesSelect);
+                            String clientesDevolucionDisponiblesSelect = mainClass.clientesDevolucionDisponiblesSelect();
+                            
+                            out.print(clientesDevolucionDisponiblesSelect);
                         %>
                         <!--
                         <option value="NIT0">----</option>
