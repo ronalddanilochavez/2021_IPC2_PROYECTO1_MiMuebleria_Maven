@@ -795,6 +795,76 @@ public class MainClass {
     }
     
     /**
+     * Para buscar los clientes de muebles devueltos disponibles
+     * @return String
+     */
+    
+    // Para buscar los clientes disponibles
+    public String clientesDevolucionDisponiblesSelect() {
+        String clientesDevolucionSelect = "<option value=\"cliente0\">------</option>";
+        
+        arrayMueblesDevueltos.clear();
+
+        try {      
+            // Nos conectamos a mySQL
+            mySQLConnect();
+            
+            // crea un java statement
+            Statement st = connection.createStatement();
+
+            // To sort by UpDown or Category                      
+            PreparedStatement ps = connection.prepareStatement("USE mimuebleria;");
+
+            ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos ORDER BY mimuebleria.mueblesdevueltos.NITCliente ASC");
+            // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
+            //ps.setString(1, "string1");
+            //ps.setString(2, "string2");
+
+            ResultSet rs = ps.executeQuery();
+
+            // iteración a traves de java resultset
+            while (rs.next())
+            {   
+                mueblesDevueltos myClienteDevolucion = new mueblesDevueltos();
+
+                myClienteDevolucion.setIdentificadorMueble(rs.getString("IdentificadorMueble"));
+                myClienteDevolucion.setNombreMueble(rs.getString("NombreMueble"));
+                myClienteDevolucion.setCantidad(rs.getString("Cantidad"));
+                myClienteDevolucion.setNombreCliente(rs.getString("NombreCliente"));
+                myClienteDevolucion.setNITCliente(rs.getString("NITCliente"));
+                myClienteDevolucion.setFechaDevolucion(rs.getString("FechaDevolucion"));
+                myClienteDevolucion.setPerdida(rs.getString("Perdida"));
+
+                arrayMueblesDevueltos.add(myClienteDevolucion);
+
+                myClienteDevolucion = null;
+            }
+
+            ps.close();
+            
+            // Escribe el código html del select de muebles ensamblados
+            if (arrayMueblesDevueltos.size() > 0){
+                clientesDevolucionSelect = "<option value=\""+ arrayMueblesDevueltos.get(0).getNITCliente() + "\">" + arrayMueblesDevueltos.get(0).getNITCliente() + " " + arrayMueblesDevueltos.get(0).getNombreCliente() +  "</option>";
+                
+                if (arrayMueblesDevueltos.size() > 1) {
+                    for (int i = 1; i < arrayMueblesDevueltos.size(); i++) {
+                        clientesDevolucionSelect += "<option value=\"" + arrayMueblesDevueltos.get(i).getNITCliente() + "\">" + arrayMueblesDevueltos.get(i).getNITCliente() + " " + arrayMueblesDevueltos.get(i).getNombreCliente() +  "</option>";
+                    }
+                }
+            }
+            
+            arrayMueblesDevueltos.clear();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Hay un error! ");
+            System.err.println(e.getMessage());
+        }
+        
+        return clientesDevolucionSelect;
+    }
+    
+    /**
      * Para buscar los usuarios disponibles
      * @return String
      */
@@ -2675,7 +2745,7 @@ public class MainClass {
             }
             else if (fechaInicial.equals("") && !fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -2686,7 +2756,7 @@ public class MainClass {
             }
             else if (!fechaInicial.equals("") && fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaVenta >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaDevolucion >= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -2697,7 +2767,7 @@ public class MainClass {
             }
             else if (!fechaInicial.equals("") && !fechaFinal.equals("")){
                 // Se busca el intervalo requerido
-                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaVenta >= ? AND FechaVenta <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
+                ps = connection.prepareStatement("SELECT * FROM mimuebleria.mueblesdevueltos WHERE NITCliente = ? AND FechaDevolucion >= ? AND FechaDevolucion <= ? ORDER BY mimuebleria.mueblesdevueltos.FechaDevolucion ASC");
                 // en la sentencia se us ? para cada string que se utiliza despues del WHERE nombre = ?
                 //ps.setString(1, "string1");
                 //ps.setString(2, "string2");
@@ -2717,11 +2787,11 @@ public class MainClass {
 
                 myMueble.setIdentificadorMueble(rs.getString("IdentificadorMueble"));
                 myMueble.setNombreMueble(rs.getString("NombreMueble"));
-                myMueble.setCantidad(rs.getString("Usuario"));
-                myMueble.setNombreCliente(rs.getString("Costo"));
-                myMueble.setNITCliente(rs.getString("Precio"));
-                myMueble.setFechaDevolucion(rs.getString("Cantidad"));
-                myMueble.setPerdida(rs.getString("Ganancia"));
+                myMueble.setCantidad(rs.getString("Cantidad"));
+                myMueble.setNombreCliente(rs.getString("NombreCliente"));
+                myMueble.setNITCliente(rs.getString("NITCliente"));
+                myMueble.setFechaDevolucion(rs.getString("FechaDevolucion"));
+                myMueble.setPerdida(rs.getString("Perdida"));
 
                 arrayMueblesDevueltos.add(myMueble);
 
